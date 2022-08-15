@@ -1,4 +1,4 @@
-# umi project
+# ethers template
 
 ## Getting Started
 
