@@ -4,8 +4,8 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
-  routes: [
-    { path: '/', component: '@/pages/index' },
-  ],
   fastRefresh: {},
+  define: {
+    DEFAULT_CHAIN_ID: '56',
+  },
 });
