@@ -7,6 +7,7 @@
 - Support MetaMask, Clover.
 - Available provider function from Ethers.
 - Eager connection.
+- Integrated typechain
 ## Getting Started
 
 Install dependencies,

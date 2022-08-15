@@ -3,10 +3,11 @@
   "scripts": {
     "start": "cross-env UMI_ENV=dev umi dev",
     "build": "umi build",
-    "postinstall": "umi generate tmp",
+    "postinstall": "yarn run typechain umi generate tmp",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "test": "umi-test",
-    "test:coverage": "umi-test --coverage"
+    "test:coverage": "umi-test --coverage",
+    "typechain": "typechain --out-dir src/config/abi/types --target=ethers-v5 \"src/config/abi/*.json\""
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
@@ -22,16 +23,19 @@
   "dependencies": {
     "@ant-design/pro-layout": "^6.5.0",
     "@clover-network/clover-connector": "^1.0.0",
+    "@ethersproject/contracts": "^5.6.2",
     "@ethersproject/providers": "^5.6.8",
     "@ethersproject/units": "^5.6.1",
     "@web3-react/core": "^6.1.9",
     "@web3-react/injected-connector": "^6.0.7",
+    "ethers": "^5.6.9",
     "react": "17.x",
     "react-device-detect": "^2.2.2",
     "react-dom": "17.x",
     "umi": "^3.5.32"
   },
   "devDependencies": {
+    "@typechain/ethers-v5": "^10.1.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@umijs/preset-react": "1.x",
@@ -39,6 +43,7 @@
     "cross-env": "^7.0.3",
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.0",
+    "typechain": "^8.1.0",
     "typescript": "^4.1.2",
     "yorkie": "^2.0.0"
   }
