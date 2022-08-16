@@ -15,8 +15,6 @@ const useAuth = () => {
     async (connectorID: ConnectorNames) => {
       const connectorOrGetConnector = connectorsByName[connectorID];
 
-      console.log('>>> connectorOrGetConnector:', connectorOrGetConnector);
-
       const connector =
         typeof connectorOrGetConnector !== 'function'
           ? connectorsByName[connectorID]

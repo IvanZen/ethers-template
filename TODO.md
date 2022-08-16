@@ -1,3 +1,5 @@
-- [ ] typechain
 - [x] support MetaMask
 - [x] support Clover
+- [x] typechain
+- [ ] addressHelper for multi-chain DAPP
+- [ ] useCatchTxError

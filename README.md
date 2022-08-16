@@ -8,6 +8,7 @@
 - Available provider function from Ethers.
 - Eager connection.
 - Integrated typechain
+- Enable to call contract methods in SWR(stale-while-revalidate) pattern.
 ## Getting Started
 
 Install dependencies,
