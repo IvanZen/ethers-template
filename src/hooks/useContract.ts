@@ -8,7 +8,7 @@ import ERC20_ABI from '@/config/abi/erc20.json';
 import { Erc20 } from '@/config/abi/types';
 
 export const useContract = <T extends Contract = Contract>(
-  address: string | undefined,
+  address: string,
   ABI: any,
   withSignerIfPossible = true,
 ): T | null => {
@@ -39,7 +39,7 @@ export const useContract = <T extends Contract = Contract>(
 };
 
 export function useTokenContract(
-  tokenAddress?: string,
+  tokenAddress: string,
   withSignerIfPossible?: boolean,
 ) {
   return useContract<Erc20>(tokenAddress, ERC20_ABI, withSignerIfPossible);
