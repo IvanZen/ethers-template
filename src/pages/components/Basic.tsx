@@ -17,7 +17,9 @@ export default function Basic() {
   const { library, connector } = useActiveWeb3React();
   const { login, logout } = useAuth();
 
-  const [connectorName, setConnectorName] = useState<string>();
+  const [connectorName, setConnectorName] = useState<string>(
+    'StaticJsonRpcProvider',
+  );
   const [nativeTokenBalance, setNativeTokenBalance] = useState<string>();
 
   const handleConnect = async (walletConfig: Config) => {
@@ -51,20 +53,22 @@ export default function Basic() {
 
   useEffect(() => {
     if (!active) {
-      return setConnectorName('null');
+      return setConnectorName('StaticJsonRpcProvider');
     }
 
-    setConnectorName(localStorage?.getItem(connectorLocalStorageKey) || 'null');
+    setConnectorName(
+      localStorage?.getItem(connectorLocalStorageKey) ||
+        'StaticJsonRpcProvider',
+    );
   }, [connector, active]);
 
   useEffect(() => {
-    if (!account) {
-      return setNativeTokenBalance('null');
-    }
-
-    library?.getBalance(account).then((value) => {
-      setNativeTokenBalance(formatUnits(value.toString(), 18));
-    });
+    library
+      ?.getBalance('0xD33Ca668F3FF45b6a629a7db19Fc6318C47370E8')
+      .then((value) => {
+        setNativeTokenBalance(formatUnits(value.toString(), 18));
+        console.log('value: ', value);
+      });
   }, [account, library]);
 
   return (

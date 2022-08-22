@@ -1,4 +1,5 @@
 import Basic from './components/Basic';
+import ContractInteraction from './components/ContractInteraction';
 import SwrContract from './components/swrContract';
 
 export default function IndexPage() {
@@ -9,6 +10,8 @@ export default function IndexPage() {
       <Basic />
       <hr />
       <SwrContract />
+      <hr />
+      <ContractInteraction />
     </div>
   );
 }
