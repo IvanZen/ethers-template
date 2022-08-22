@@ -6,6 +6,7 @@ import { Web3ReactContextInterface } from '@web3-react/core/dist/types';
 import { useWeb3React } from '@web3-react/core';
 
 import { CHAIN_ID } from '@/config/constants/networks';
+import { simpleRpcProvider } from '@/utils/providers';
 
 /**
  * Provides a web3 provider with or without user's signer
@@ -14,11 +15,11 @@ import { CHAIN_ID } from '@/config/constants/networks';
 const useActiveWeb3React = (): Web3ReactContextInterface<Web3Provider> => {
   const { library, chainId, ...web3React } = useWeb3React();
   const refEth = useRef(library);
-  const [provider, setProvider] = useState(library);
+  const [provider, setProvider] = useState(library || simpleRpcProvider);
 
   useEffect(() => {
     if (library !== refEth.current) {
-      setProvider(library);
+      setProvider(library || simpleRpcProvider);
       refEth.current = library;
     }
   }, [library]);

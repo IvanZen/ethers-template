@@ -27,3 +27,6 @@ interface Window {
 }
 
 declare const DEFAULT_CHAIN_ID: string;
+declare const RPC_NODE_1: string;
+declare const RPC_NODE_2: string;
+declare const RPC_NODE_3: string;
